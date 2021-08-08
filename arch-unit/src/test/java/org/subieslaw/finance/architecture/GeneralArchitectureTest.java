@@ -3,7 +3,9 @@ import com.tngtech.archunit.core.domain.JavaClasses;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.ArchRule;
 import com.tngtech.archunit.lang.CompositeArchRule;
+import com.tngtech.archunit.library.dependencies.SlicesRuleDefinition;
 
+import static com.tngtech.archunit.core.importer.ImportOption.Predefined.DO_NOT_INCLUDE_JARS;
 import static com.tngtech.archunit.core.importer.ImportOption.Predefined.DO_NOT_INCLUDE_TESTS;
 import static com.tngtech.archunit.lang.CompositeArchRule.of;
 
@@ -16,11 +18,20 @@ import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_
 import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_USE_JAVA_UTIL_LOGGING;
 import static com.tngtech.archunit.library.GeneralCodingRules.NO_CLASSES_SHOULD_USE_JODATIME;
 
-public class MyArchitectureTest {
+public class GeneralArchitectureTest {
     
     private JavaClasses importedClasses = new ClassFileImporter()
+                                                   .withImportOption(DO_NOT_INCLUDE_JARS)
                                                    .withImportOption(DO_NOT_INCLUDE_TESTS)
                                                    .importPackages("org.subieslaw.finance.demo");
+
+    @Test
+    public void should_be_free_of_cycles(){
+        SlicesRuleDefinition.slices().matching("org.subieslaw.finance.(*)..")
+                                .should()
+                                .beFreeOfCycles();
+    }
+
     @Test
     public void classes_should_have_final_fields() {
         ArchRule rule = classes()
@@ -56,5 +67,6 @@ public class MyArchitectureTest {
         myRule.because("We should not use obsolete Java features.")
         .check(importedClasses);
     }
+ 
 
 }
