@@ -2,7 +2,6 @@ package org.subieslaw.finance.architecture;
 
 import com.tngtech.archunit.core.domain.JavaClass;
 import com.tngtech.archunit.core.domain.JavaClasses;
-import com.tngtech.archunit.core.domain.JavaType;
 import com.tngtech.archunit.core.importer.ClassFileImporter;
 import com.tngtech.archunit.lang.ArchCondition;
 import com.tngtech.archunit.lang.ConditionEvents;
@@ -24,7 +23,8 @@ public class ClassStructureArchitectureTest {
     @Test
     public void should_derive_from_java_lang_object(){
 
-        ArchCondition<JavaClass> shouldHaveObjectAsAParent = new ArchCondition<JavaClass>("can only have Object as superclass"){
+        ArchCondition<JavaClass> shouldHaveObjectAsAParent = 
+                new ArchCondition<JavaClass>("Classes can only have java.lang.Object as superclass"){
 
             @Override
             public void check(JavaClass item, ConditionEvents events) {
@@ -32,15 +32,20 @@ public class ClassStructureArchitectureTest {
                 boolean hasObjectAsParentClass = fullName.equals(Object.class.getName());
                 String message = String.format(
                         "Class %s is extending %s not java.lang.Object", item.getName(), fullName);
+                
                 if (!hasObjectAsParentClass) {
                     events.add(SimpleConditionEvent.violated(item, message));
                 }
             }
         };
         
-        classes().that().areNotInterfaces().and().areNotEnums()
+        classes()
+            .that()
+            .areNotInterfaces()
+            .and()
+            .areNotEnums()
             .should(shouldHaveObjectAsAParent)
-            .because("We prefer composition over interherance")
+            .because("We prefer composition over Java inheritance")
             .check(importedClasses);
     }
     

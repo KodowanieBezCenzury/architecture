@@ -27,7 +27,8 @@ public class GeneralArchitectureTest {
 
     @Test
     public void should_be_free_of_cycles(){
-        SlicesRuleDefinition.slices().matching("org.subieslaw.finance.(*)..")
+        SlicesRuleDefinition.slices()
+                                .matching("org.subieslaw.finance.(*)..")
                                 .should()
                                 .beFreeOfCycles();
     }
