@@ -1,20 +1,20 @@
-import {checkFeatureFlag as checkFeatureFlag} from "./flag.js"
+import {isFeatureEnabled as isFeatureEnabled} from "./flag.js"
 
 export function addTodo(text, assignee) {
     const todoList = document.getElementById('todo-list');
     
     let todoListItem;
-    if ( checkFeatureFlag('great-feature') ) {
-        todoListItem = createNewTodoListElement(text, assignee);
+    if ( isFeatureEnabled('great-feature') ) {
+        todoListItem = createSuperFancyTodoListElement(text, assignee);
     } else {
         todoListItem = createTodoListElement(text, assignee)
     }
     
     todoList.appendChild(todoListItem);
-    resetFormText();
+    resetFormInputs();
 }
 
-function resetFormText(){
+function resetFormInputs(){
     document.getElementById("todo").value = '';
     document.getElementById("assignee").value = '';
 }
@@ -34,7 +34,7 @@ function createTodoListElement(text, assignee) {
        return todoListItem;
 }
 
-function createNewTodoListElement(text, assignee) {
+function createSuperFancyTodoListElement(text, assignee) {
     const todoListItem = document.createElement('li');
     todoListItem.innerHTML = `
             <style>

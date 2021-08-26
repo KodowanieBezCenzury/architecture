@@ -1,3 +1,3 @@
-export function checkFeatureFlag(flagName){
-    return localStorage.getItem(flagName) == 'true';
+export function isFeatureEnabled(featureName){
+    return localStorage.getItem(featureName) == 'true';
 }
