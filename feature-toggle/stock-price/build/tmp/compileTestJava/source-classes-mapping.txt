@@ -1,0 +1,5 @@
+com/kodowaniebezcenzury/subieslaw/stockprice/model/StockMonitorTest.java
+ com.kodowaniebezcenzury.subieslaw.stockprice.model.StockMonitorTest
+ com.kodowaniebezcenzury.subieslaw.stockprice.model.StockMonitorTest$1
+com/kodowaniebezcenzury/subieslaw/stockprice/model/DemoApplicationTests.java
+ com.kodowaniebezcenzury.subieslaw.stockprice.model.DemoApplicationTests
