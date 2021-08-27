@@ -1,13 +1,13 @@
-package com.kodowaniebezcenzury.subieslaw.stockprice.model;
+package com.kodowaniebezcenzury.subieslaw.stockprice.infrastructure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class StockPriceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(StockPriceApplication.class, args);
 	}
 
 }
