@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-class StockInfo {
+public class StockInfo {
 
     String ticker;
     BigDecimal price;

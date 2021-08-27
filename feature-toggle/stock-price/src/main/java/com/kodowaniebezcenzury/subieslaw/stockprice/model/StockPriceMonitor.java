@@ -1,6 +1,5 @@
 package com.kodowaniebezcenzury.subieslaw.stockprice.model;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
