@@ -18,7 +18,7 @@ cd feature-toggle/stock-price
 
 Here are some useful links:
 * example: [http://localhost:8080/stockprice?ticker=AMZN](http://localhost:8080/stockprice?ticker=AMZN)
-* Feature toggle status: [http://localhost:8080/actuator/togglz](http://localhost:8080/actuator/togglz)
+* toggle status: [http://localhost:8080/actuator/togglz](http://localhost:8080/actuator/togglz)
 * toggle management: [http://localhost:8080/togglz-console/index](http://localhost:8080/togglz-console/index)
 
 ### Trivia:
