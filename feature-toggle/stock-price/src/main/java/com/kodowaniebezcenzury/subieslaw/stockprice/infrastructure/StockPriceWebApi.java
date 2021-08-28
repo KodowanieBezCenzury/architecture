@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockPriceMonitor;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,7 +27,7 @@ public class StockPriceWebApi {
 
     private final FeatureManager featureManager;
 
-    @GetMapping("/stockprice")
+    @GetMapping(value = "/stockprice", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<String> register(@RequestParam String ticker) {
         BigDecimal currentStockPrice;
         if (featureManager.isActive(FeatureToggle.YAHOO_READER)) {
