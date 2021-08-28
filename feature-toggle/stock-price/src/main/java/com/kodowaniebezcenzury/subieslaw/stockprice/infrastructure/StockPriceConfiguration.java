@@ -7,9 +7,11 @@ import com.kodowaniebezcenzury.subieslaw.stockprice.model.RobinHoodPriceReader;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockEvent;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockPriceMonitor;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockReader;
+import com.kodowaniebezcenzury.subieslaw.stockprice.model.YahooPriceReader;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 public class StockPriceConfiguration {
@@ -17,6 +19,11 @@ public class StockPriceConfiguration {
     @Bean
     public StockReader stockReader(){
         return new RobinHoodPriceReader();
+    }
+
+    @Bean
+    public StockReader yahooStockReader(){
+        return new YahooPriceReader();
     }
 
     @Bean
@@ -30,9 +37,16 @@ public class StockPriceConfiguration {
     }
 
     @Bean
+    @Primary
     public StockPriceMonitor stockPriceMonitor(){
         return new StockPriceMonitor(stockReader(), stockEvent(), auditLog());
     }
+
+    @Bean
+    public StockPriceMonitor superFancystockPriceMonitor(){
+        return new StockPriceMonitor(yahooStockReader(), stockEvent(), auditLog());
+    }
+
 
 
 }

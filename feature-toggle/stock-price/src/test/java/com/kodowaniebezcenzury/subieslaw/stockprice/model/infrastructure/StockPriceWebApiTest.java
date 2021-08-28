@@ -11,9 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.togglz.spring.boot.actuate.autoconfigure.TogglzAutoConfiguration;
 
 
-@SpringBootTest(classes = {StockPriceWebApi.class, StockPriceConfiguration.class})
+@SpringBootTest(classes = {StockPriceWebApi.class, StockPriceConfiguration.class, TogglzAutoConfiguration.class })
 @AutoConfigureMockMvc
 public class StockPriceWebApiTest {
     
