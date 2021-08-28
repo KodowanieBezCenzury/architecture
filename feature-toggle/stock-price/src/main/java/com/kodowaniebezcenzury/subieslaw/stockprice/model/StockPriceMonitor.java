@@ -16,7 +16,7 @@ public class StockPriceMonitor {
     private final AuditLog auditLog;
     private List<Stock> monitoredStocks = new LinkedList<>();
 
-    BigDecimal readCurrentStockPrice(String stockTicker) {
+    public BigDecimal readCurrentStockPrice(String stockTicker) {
         Optional<StockInfo> stockInfo = stockReader.get(stockTicker);
         auditLog.record(AuditEvent.STOCK_PRICE_CALLED);
         return stockInfo.isPresent() ? stockInfo.get().price : BigDecimal.valueOf(-1);
