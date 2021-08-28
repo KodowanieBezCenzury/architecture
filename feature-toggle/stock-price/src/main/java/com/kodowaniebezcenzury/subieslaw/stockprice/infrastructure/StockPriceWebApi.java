@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.togglz.core.manager.FeatureManager;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class StockPriceWebApi {
 
-    private StockPriceMonitor priceMonitor;
+    @Qualifier("stockPriceMonitor")
+    private final StockPriceMonitor priceMonitor;
 
     @Qualifier("superFancystockPriceMonitor")
-    private StockPriceMonitor superFancypriceMonitor;
+    private final StockPriceMonitor superFancypriceMonitor;
 
-    private FeatureManager featureManager;
+    private final FeatureManager featureManager;
 
     @GetMapping("/stockprice")
     public ResponseEntity<String> register(@RequestParam String ticker) {

@@ -9,6 +9,7 @@ import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockPriceMonitor;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockReader;
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.YahooPriceReader;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -37,7 +38,6 @@ public class StockPriceConfiguration {
     }
 
     @Bean
-    @Primary
     public StockPriceMonitor stockPriceMonitor(){
         return new StockPriceMonitor(stockReader(), stockEvent(), auditLog());
     }
