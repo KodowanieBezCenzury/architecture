@@ -2,8 +2,9 @@ package com.kodowaniebezcenzury.subieslaw.stockprice.infrastructure;
 
 import lombok.*;
 
-@AllArgsConstructor
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 public class StockResponse {
 
     private String stockPrice;

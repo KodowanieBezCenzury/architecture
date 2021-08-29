@@ -11,8 +11,8 @@ import org.togglz.core.manager.FeatureManager;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
 @RequiredArgsConstructor
+@RestController
 public class StockPriceWebApi {
 
     @Qualifier("stockPriceMonitor")
@@ -24,17 +24,15 @@ public class StockPriceWebApi {
     private final FeatureManager featureManager;
 
     @GetMapping(value = "/stockprice", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public StockResponse register(@RequestParam String ticker) {
+    StockResponse readStockPrice(@RequestParam String ticker) {
         
-        StockResponse currentStockPrice;
+        StockResponse currentStockPrice = new StockResponse();
         if (featureManager.isActive(FeatureToggle.YAHOO_READER)) {
-            currentStockPrice = new StockResponse(
-                                        superFancypriceMonitor.readCurrentStockPrice(ticker).toString(),
-                                         "experimental");
+            currentStockPrice.setStockPrice(superFancypriceMonitor.readCurrentStockPrice(ticker).toString());
+            currentStockPrice.setSource("experimental");
         } else {
-            currentStockPrice = new StockResponse(
-                                        priceMonitor.readCurrentStockPrice(ticker).toString(),
-                                         "regular");
+            currentStockPrice.setStockPrice(priceMonitor.readCurrentStockPrice(ticker).toString());
+            currentStockPrice.setSource("regular");
         }
 
         return currentStockPrice;
