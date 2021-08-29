@@ -1,20 +1,20 @@
-import {isFeatureEnabled as isFeatureEnabled} from "./flag.js"
+import { isFeatureEnabled as isFeatureEnabled } from "./flag.js"
 
 export function addTodo(text, assignee) {
     const todoList = document.getElementById('todo-list');
-    
+
     let todoListItem;
-    if ( isFeatureEnabled('great-feature') ) {
+    if (isFeatureEnabled('great-feature')) {
         todoListItem = createSuperFancyTodoListElement(text, assignee);
     } else {
         todoListItem = createTodoListElement(text, assignee)
     }
-    
+
     todoList.appendChild(todoListItem);
     resetFormInputs();
 }
 
-function resetFormInputs(){
+function resetFormInputs() {
     document.getElementById("todo").value = '';
     document.getElementById("assignee").value = '';
 }
@@ -25,26 +25,19 @@ function createTodoListElement(text, assignee) {
             <style>
             p {
                 color: white;
-                background-color: blue;
+                background-color: grey;
                 padding: 10px;
             }
             </style>
-            <p>${text} 🛠 ${assignee}</p>
+            <p>${text} : ${assignee}</p>
             `;
-       return todoListItem;
+    return todoListItem;
 }
 
 function createSuperFancyTodoListElement(text, assignee) {
     const todoListItem = document.createElement('li');
     todoListItem.innerHTML = `
-            <style>
-            p {
-                color: white;
-                background-color: blue;
-                padding: 10px;
-            }
-            </style>
-            <p>${assignee} will be responsible for ${text}</p>
+            <span>Zadanie:${text}, szybciutko wykona:<b>${assignee}<b>!</span>
             `;
-       return todoListItem;
+    return todoListItem;
 }
