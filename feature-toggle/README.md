@@ -6,13 +6,12 @@ After that time lot of other interesting articles have been created, like this o
 
 ## Important concepts
 ### Toggle
-This is the software representation of <img
+<img
   src="blog/toggle-switch.jpg"
   alt="Hardware Toggle"
   title=""
   style="display: inline-block; margin: 0 auto; max-width: 128px">
-.</br>
-This If statement used in a good way :)
+ this is the software representation of it's hardware counterpart. This is **If** statement used in a good way 😇
 ### Toggle types
 As per [feature-toggles](https://martinfowler.com/articles/feature-toggles.html) toggles can be divided as:
 * Release Toggles - used to enable trunk development for teams
