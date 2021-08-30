@@ -1,5 +1,5 @@
 # Code example for Toogle Feature presentation
-## How to user Togglz library
+## How to use Togglz library
 
 # Feature Toggle implementation
 This example is using [https://www.togglz.org/](https://www.togglz.org/) with Spring-Boot integration [https://www.togglz.org/documentation/spring-boot-starter.html](https://www.togglz.org/documentation/spring-boot-starter.html).
