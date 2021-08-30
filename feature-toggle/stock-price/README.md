@@ -16,7 +16,7 @@ cd feature-toggle/stock-price
 ./gradlew bootRun
 ```
 
-Nad use this links:
+And use this links:
 * example: [http://localhost:8080/stockprice?ticker=AMZN](http://localhost:8080/stockprice?ticker=AMZN)
 * toggle status: [http://localhost:8080/actuator/togglz](http://localhost:8080/actuator/togglz)
 * toggle management: [http://localhost:8080/togglz-console/index](http://localhost:8080/togglz-console/index)
