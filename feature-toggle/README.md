@@ -2,7 +2,7 @@
 
 ## Feature Toggle
 Initial idea was coined here [Martin Fowler blog](https://www.martinfowler.com/articles/feature-toggles.html).
-After that time lot of other interesting articles have been created, like this one [introduction-to-feature-toggles-and-implementation-best-practices](https://medium.com/darrensimio/introduction-to-feature-toggles-and-implementation-best-practices-4c2a8a68927b). If you are looking for more information please visit [https://featureflags.io/java-feature-flags/](https://featureflags.io/java-feature-flags/).
+After that time lot of other interesting articles have been created, like this one [introduction-to-feature-toggles-and-implementation-best-practices](https://medium.com/darrensimio/introduction-to-feature-toggles-and-implementation-best-practices-4c2a8a68927b). If you are looking for more information please visit [https://featureflags.io](https://featureflags.io).
 
 ## Important concepts
 ### Toggle
