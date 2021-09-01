@@ -37,5 +37,9 @@ Is used to dynamically route application flow base on feature configuration and 
 * [https://github.com/togglz/togglz](https://github.com/togglz/togglz)
 * [https://github.com/Unleash/unleash](https://github.com/Unleash/unleash)
 
+## Examples
+* [Custom JS implementation](vanila-web-app/README.md)
+* [Spring + Loggz](stock-price/README.md)
+
 ### Trivia:
 Faeture toggle is also know as: Feature Flag, Feature Bit, or Feature Flipper.
