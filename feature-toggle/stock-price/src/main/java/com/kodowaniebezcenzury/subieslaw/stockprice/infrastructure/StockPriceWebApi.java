@@ -1,13 +1,9 @@
 package com.kodowaniebezcenzury.subieslaw.stockprice.infrastructure;
 
-import java.math.BigDecimal;
-import java.util.Optional;
-
 import com.kodowaniebezcenzury.subieslaw.stockprice.model.StockPriceMonitor;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +11,8 @@ import org.togglz.core.manager.FeatureManager;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
 @RequiredArgsConstructor
+@RestController
 public class StockPriceWebApi {
 
     @Qualifier("stockPriceMonitor")
@@ -28,16 +24,18 @@ public class StockPriceWebApi {
     private final FeatureManager featureManager;
 
     @GetMapping(value = "/stockprice", produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<String> register(@RequestParam String ticker) {
-        BigDecimal currentStockPrice;
+    StockResponse readStockPrice(@RequestParam String ticker) {
+        
+        StockResponse currentStockPrice = new StockResponse();
         if (featureManager.isActive(FeatureToggle.YAHOO_READER)) {
-            currentStockPrice = superFancypriceMonitor.readCurrentStockPrice(ticker);
+            currentStockPrice.setStockPrice(superFancypriceMonitor.readCurrentStockPrice(ticker).toString());
+            currentStockPrice.setSource("experimental");
         } else {
-            currentStockPrice = priceMonitor.readCurrentStockPrice(ticker);
+            currentStockPrice.setStockPrice(priceMonitor.readCurrentStockPrice(ticker).toString());
+            currentStockPrice.setSource("regular");
         }
 
-        Optional<String> of = Optional.of(currentStockPrice.toString());
-        return ResponseEntity.of(of);
+        return currentStockPrice;
     }
 
 }
