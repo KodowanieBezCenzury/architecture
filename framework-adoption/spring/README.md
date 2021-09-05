@@ -1,10 +1,11 @@
-# Code example for Toogle Feature presentation
-## Here we got small example how to use libraries for 
+# Code example for framework adoption
+## Here we got example how to use [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/) 
 
-# Feature Toggle implementation
-This example is using [https://www.togglz.org/](https://www.togglz.org/) with Spring-Boot integration [https://www.togglz.org/documentation/spring-boot-starter.html](https://www.togglz.org/documentation/spring-boot-starter.html).
+Idea is to make application accesible via HTTP and try to not polute bisiness logic with technical details.
 
-Project is a simple StocReader application having one HTTP endpoint:
+# Application 
+
+Project is a simple StocReader application using dummy stock reader having one HTTP endpoint:
 
 ```
 GET /stockprice?ticker={id}
@@ -12,16 +13,12 @@ GET /stockprice?ticker={id}
 Please start application with:
 ```
 git clone https://github.com/KodowanieBezCenzury/architecture.git
-cd feature-toggle/stock-price
+cd framework-adoption/spring
 ./gradlew bootRun
 ```
 
 Here are some useful links:
 * example: [http://localhost:8080/stockprice?ticker=AMZN](http://localhost:8080/stockprice?ticker=AMZN)
-* toggle status: [http://localhost:8080/actuator/togglz](http://localhost:8080/actuator/togglz)
-* toggle management: [http://localhost:8080/togglz-console/index](http://localhost:8080/togglz-console/index)
+* actuator status: [http://localhost:8080/actuator](http://localhost:8080/actuator)
 
 ### Trivia:
-Creating this example I discovered that lombok is now supporting spring @Qualifier annotation when using RequiredArgsConstructor [please read this post](https://ath3nd.wordpress.com/2018/12/13/spring-lombok-or-injection-just-became-a-bit-easier-part-2-of-2/)!
-
-
