@@ -17,14 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.togglz.core.manager.FeatureManager;
-import org.togglz.core.repository.FeatureState;
 
 @SpringBootTest
 public class StockPriceWebApiTest {
-
-    @Autowired
-    private FeatureManager featureManager;
 
     @Autowired
     private StockPriceWebApi api;
@@ -34,14 +29,11 @@ public class StockPriceWebApiTest {
     @BeforeEach
     public void beforeEach() {
         StockPriceMonitor regular = Mockito.mock(StockPriceMonitor.class);
-        StockPriceMonitor experimental = Mockito.mock(StockPriceMonitor.class);
         
         Mockito.when(regular.readCurrentStockPrice(anyString()))
             .thenReturn(BigDecimal.valueOf(10l));
-        Mockito.when(experimental.readCurrentStockPrice(anyString()))
-            .thenReturn(BigDecimal.valueOf(2222l));
         
-        api = new StockPriceWebApi(regular, experimental, featureManager);
+        api = new StockPriceWebApi(regular);
 
         this.mockMvc = MockMvcBuilders
             .standaloneSetup(api)
@@ -51,34 +43,11 @@ public class StockPriceWebApiTest {
     }
 
     @Test
-    public void should_return_stock_value_for_experimental_feature() throws Exception {
-
-        enableYahooFeature();
-
-        mockMvc.perform(get("/stockprice").param("ticker", "AMZN"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.source", is("experimental")));
-    }
-
-    @Test
     public void should_return_stock_value_for_standard_feature() throws Exception {
-
-        disableYahooFeature();
 
         mockMvc.perform(get("/stockprice").param("ticker", "AMZN"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.source", is("regular")));
     }
 
-    private void enableYahooFeature() {
-        FeatureState featureState = featureManager.getFeatureState(FeatureToggle.YAHOO_READER);
-        featureState.enable();
-        featureManager.setFeatureState(featureState);
-    }
-
-    private void disableYahooFeature() {
-        FeatureState featureState = featureManager.getFeatureState(FeatureToggle.YAHOO_READER);
-        featureState.disable();
-        featureManager.setFeatureState(featureState);
-    }
 }
