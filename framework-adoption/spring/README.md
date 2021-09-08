@@ -2,6 +2,9 @@
 ## Here we got example how to use [Spring Boot](https://docs.spring.io/spring-boot/docs/current/reference/html/) 
 
 Idea is to make application accesible via HTTP and try to not polute bisiness logic with technical details.
+### How to implement Spring integraion
+* [Getting Started with Spring Boot](https://spring.io/guides/gs/spring-boot/)
+* [Testing Spring Web](https://spring.io/guides/gs/testing-web/)
 
 # Application 
 
@@ -22,3 +25,4 @@ Here are some useful links:
 * actuator status: [http://localhost:8080/actuator](http://localhost:8080/actuator)
 
 ### Trivia:
+Ctrl+C and Ctrl+V technique works every time!
