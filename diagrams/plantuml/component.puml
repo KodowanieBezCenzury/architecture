@@ -1,0 +1,39 @@
+"@startuml My Great Polish Application"
+skinparam handwritten false
+
+rectangle "On premis" {
+    () "HTTP" as Http1
+    () "HTTP" as Http2
+
+    package "Microfrontends" {
+        [Fronend 1] as Frontend1 <<React>>
+        [Fronend 2] as Frontend2 <<React>>
+    }
+
+    node "Services1" {
+        [Service 1] as Service1 <<SpingBoot>>
+    }
+
+    node "Services2" {
+        [Service 2] as Service2 <<SpingBoot2 >>
+    }
+}
+
+cloud "AWS" {
+    database "Amazon Neptune" {
+        folder "This is my folder" {
+            [Folder 1] as Folder1 <<fsdfds>>
+            [Folder 2] as Folder2 <<fsdfds>>
+        }
+    }
+
+}
+
+Frontend1 <-up-> Http1
+Frontend2 <-up-> Http2
+Http1 -up- Service1
+Http2 -up- Service2
+Service1 <-left-> Folder1
+Service2 <-right-> Folder2
+
+@enduml

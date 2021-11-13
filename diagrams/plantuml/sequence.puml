@@ -1,0 +1,21 @@
+"@startuml Host Repository"
+title Register new host
+skinparam handwritten true
+
+actor UI #LimeGreen
+box "Repository" #LightBlue
+	control Repository
+	database RepositoryDB
+end box
+autonumber
+
+UI -> Repository: POST /host
+Repository -> Repository: Input validation
+alt Input data valid
+    Repository -> RepositoryDB: create new host
+    Repository --> UI: status 201
+else Input data invalid
+    Repository --> UI: status 400
+end
+
+@enduml

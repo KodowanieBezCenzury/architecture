@@ -1,0 +1,32 @@
+"@startuml Demo System Use Cases"
+
+actor "Developer" <<User>> as ADEV #LightGreen
+actor "Expert" <<User>> as AEXPR #LightCoral
+actor "Subscriber" <<User>> as ASUBSCR #LightGoldenRodYellow
+actor "Workforce" <<User>> as AWF #LightSeaGreen
+
+component "Designer" <<Application>> as CQD #LightBlue
+component "Runner" <<Application>> as CQR #LightBlue
+
+usecase (Provides new versions) as UC1
+usecase (Updates quizzes content) as UC2
+usecase (Receives updated quizzes) as UC5
+usecase (Add updated quizzes) as UC6
+usecase (Passes quizzes) as UC7
+usecase (Checks quiz results) as UC8
+
+ADEV -down-> UC1
+UC1 -left-> CQD
+UC1 -> CQR
+AEXPR -down-> UC2
+UC2 -down-> CQD
+ASUBSCR -up-> UC5
+UC5 -up-> CQR
+ASUBSCR -up-> UC6
+UC6 -up-> CQR
+UC7 -down-> CQR
+AWF -down-> UC7
+UC8 -left-> CQR
+ASUBSCR -up-> UC8
+
+@enduml
