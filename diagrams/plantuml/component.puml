@@ -6,8 +6,8 @@ rectangle "On premis" {
     () "HTTP" as Http2
 
     package "Microfrontends" {
-        [Fronend 1] as Frontend1 <<React>>
-        [Fronend 2] as Frontend2 <<React>>
+        [Frontend 1] as Frontend1 <<React>>
+        [Frontend 2] as Frontend2 <<React>>
     }
 
     node "Services1" {
@@ -15,15 +15,15 @@ rectangle "On premis" {
     }
 
     node "Services2" {
-        [Service 2] as Service2 <<SpingBoot2 >>
+        [Service 2] as Service2 <<SpingBoot>>
     }
 }
 
 cloud "AWS" {
     database "Amazon Neptune" {
-        folder "This is my folder" {
-            [Folder 1] as Folder1 <<fsdfds>>
-            [Folder 2] as Folder2 <<fsdfds>>
+        folder "Analytics" {
+            [Folder 1] as Folder1 
+            [Folder 2] as Folder2 
         }
     }
 
@@ -31,8 +31,8 @@ cloud "AWS" {
 
 Frontend1 <-up-> Http1
 Frontend2 <-up-> Http2
-Http1 -up- Service1
-Http2 -up- Service2
+Http1 <-up-> Service1
+Http2 <-up-> Service2
 Service1 <-left-> Folder1
 Service2 <-right-> Folder2
 
