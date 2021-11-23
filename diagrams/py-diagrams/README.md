@@ -4,22 +4,46 @@
 * Examples: [https://diagrams.mingrammer.com/docs/getting-started/examples](https://diagrams.mingrammer.com/docs/getting-started/examples)
 ## [Installation](https://diagrams.mingrammer.com/docs/getting-started/installation)
 <details>
-<summary>I could use some help...</summary>
+<summary>Linux</summary>
 
 ```bash
-# Required libraries
 #> Linux
 sudo apt-get install -y graphviz
+```
+
+</details>
+
+<details>
+<summary>Mac</summary>
+
+```bash
 #> Mac
 brew install graphviz
+```
+
+</details>
+
+<details>
+<summary>Windows</summary>
+
+```bash
 #> Windows
+choco install python3
 choco install graphviz
+```
+
+</details>
+
+<details>
+<summary>Diagrams itself</summary>
+
+```bash
 # Tool
 #> using pip (pip3)
-#$ pip install diagrams
-#> using pipenv
+#pip install diagrams
 #> using poetry
-#$ poetry add diagrams
+#poetry add diagrams
+#> using pipenv
 pipenv install diagrams
 pipenv shell
 ```
