@@ -49,6 +49,22 @@ pipenv shell
 ```
 </details>
 
+## Diagrams Installation
+```bash
+pipenv install diagrams
+pipenv shell
+python3 quick-start-diagram.py
+python3 k8s-diagram.py
+python3 aws-cluster.py
+```
+## Integration with Jupyterlab
+```bash
+pipenv install jupyterlab
+pipenv shell
+pip install diagrams
+jupyter lab
+```
+
 ## Example diagrams
 * [Quick Start](quick-start-diagram.py)
 * [K8S Diagram](k8s-diagram.py)
