@@ -30,3 +30,7 @@ hs_err_pid*
 **/.vscode/
 **/.classpath
 **/.project
+#python files
+*.lock
+Pipfile
+**/.ipynb_checkpoints
