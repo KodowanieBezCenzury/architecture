@@ -15,7 +15,7 @@ from diagrams.onprem.iac import Terraform
 from diagrams.onprem.ci import GitlabCI
 from diagrams.aws.storage import S3
 
-with Diagram("EKS Cluster", show=False, direction="LR"):
+with Diagram("AWS Cluster", show=False, direction="LR"):
     ssl_certificate = ACM("SSL cert")
     dns_name = Route53("DNS domain")
     load_balancer = ELB("Load balancer")
