@@ -69,3 +69,4 @@ jupyter lab
 * [Quick Start](quick-start-diagram.py)
 * [K8S Diagram](k8s-diagram.py)
 * [AWS Cluster](aws-cluster.py)
+* [Showcase](many-options.py)
