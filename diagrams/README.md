@@ -16,7 +16,8 @@ Using diagrams as a code approach, text based solutions, separate level of abstr
 * Beginner path : [PlantUml](plantuml/README.md)
 * Apprentice path : [Python Diagrams](py-diagrams/README.md)
 * Expert path : [Structurizr](structurizr/README.md) + [C4 Model](https://c4model.com/)
-
+## I want more!
+* [https://mermaid-js.github.io/mermaid/#/](https://mermaid-js.github.io/mermaid/#/)
 ## UML
 * Refcard: [https://dzone.com/refcardz/getting-started-uml](https://dzone.com/refcardz/getting-started-uml) 🐙
 * Cheatsheet: [https://www.guru99.com/uml-cheatsheet-reference-guide.html](https://www.guru99.com/uml-cheatsheet-reference-guide.html)
