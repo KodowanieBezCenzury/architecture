@@ -56,6 +56,7 @@ pipenv shell
 python3 quick-start-diagram.py
 python3 k8s-diagram.py
 python3 aws-cluster.py
+python3 many-options.py
 ```
 ## Integration with Jupyterlab
 ```bash
