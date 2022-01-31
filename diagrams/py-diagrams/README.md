@@ -1,4 +1,4 @@
-# Python Diagrams
+# Python Diagrams 🎞[youtube video link](https://www.youtube.com/watch?v=8zxn22dXga0)🎞
 * Official site: [https://diagrams.mingrammer.com/](https://diagrams.mingrammer.com/)
 * Quick start: [https://diagrams.mingrammer.com/docs/getting-started/installation#quick-start](https://diagrams.mingrammer.com/docs/getting-started/installation#quick-start)
 * Examples: [https://diagrams.mingrammer.com/docs/getting-started/examples](https://diagrams.mingrammer.com/docs/getting-started/examples)
@@ -53,10 +53,10 @@ pipenv shell
 ```bash
 pipenv install diagrams
 pipenv shell
-python3 quick-start-diagram.py
-python3 k8s-diagram.py
-python3 aws-cluster.py
-python3 many-options.py
+python3 py-diagrams/quick-start-diagram.py
+python3 py-diagrams/k8s-diagram.py
+python3 py-diagrams/aws-cluster.py
+python3 py-diagrams/many-options.py
 ```
 ## Integration with Jupyterlab
 ```bash
